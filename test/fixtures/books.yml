@@ -16,17 +16,21 @@
 #
 
 one:
-  author: MyString
   title: MyString
+  author: MyString
   synopsis: MyText
-  isbn: MyString
   publisher: MyString
-  publication_date: 2021-12-12
+  publication_year: 2000
+  number_of_pages: 2000
+  original_release_year: 2000
+  isbn: MyString
 
 two:
-  author: MyString
   title: MyString
+  author: MyString
   synopsis: MyText
-  isbn: MyString
   publisher: MyString
-  publication_date: 2021-12-12
+  publication_year: 2000
+  number_of_pages: 2000
+  original_release_year: 2000
+  isbn: MyString
