@@ -1,0 +1,79 @@
+ <style>
+ 
+ .hidden{
+    display: none;
+  }
+
+  </style>
+
+<html>
+  <body>
+    <div class="h1 text-secondary text-center p-3">My Books</div>
+
+    <div class="btn-group container-fluid" role="group" aria-label="Basic radio toggle button group">
+      <input type="radio" class="btn-check" name="btnradio" id="to-read" autocomplete="off" checked="">
+      <label class="btn btn-outline-primary" for="to-read">To-Read</label>
+      <input type="radio" class="btn-check" name="btnradio" id="reading" autocomplete="off">
+      <label class="btn btn-outline-primary" for="reading">Reading</label>
+      <input type="radio" class="btn-check" name="btnradio" id="finished" autocomplete="off">
+      <label class="btn btn-outline-primary" for="finished">Finished</label>
+    </div>
+
+    <div id="books to-read">
+      <div class="container-fluid p-3 my-3 bg-light text-black">
+        <%# this is where the to-read partial goes %>
+        <p>to-read</p>
+      </div>
+    </div>
+
+    <div id="books reading" class="hidden">
+      <div class="container-fluid p-3 my-3 bg-light text-black">
+        <%# this is where the reading partial goes %>
+        <p>reading</p>
+      </div>
+    </div>
+
+    <div id="books finished" class="hidden">
+      <div class="container-fluid p-3 my-3 bg-light text-black">
+        <%# this is where the finished partial goes %>
+        <p>finished</p>
+      </div>
+    </div>
+
+
+
+
+  <script>
+  
+    var btn1 = document.getElementById("to-read");
+    var btn2 = document.getElementById("reading");
+    var btn3 = document.getElementById("finished");
+    
+    btn1.addEventListener("click", onClick);
+    btn2.addEventListener("click", onClick);
+    btn3.addEventListener("click", onClick);
+
+    function onClick(event) {
+      let className = event.target.className;
+      let id = event.target.id;
+
+      if(id == "to-read"){
+        document.getElementById("books reading").className = "hidden"
+        document.getElementById("books finished").className = "hidden"
+        document.getElementById("books to-read").className = ""
+      }
+      else if(id == "reading"){
+        document.getElementById("books to-read").className = "hidden"
+        document.getElementById("books finished").className = "hidden"
+        document.getElementById("books reading").className = ""
+      }
+      else{
+        document.getElementById("books to-read").className = "hidden"
+        document.getElementById("books reading").className = "hidden"
+        document.getElementById("books finished").className = ""
+      }
+      console.log(event.target.checked)
+    }
+  </script>
+  </body>
+</html>
