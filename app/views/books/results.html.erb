@@ -1,0 +1,47 @@
+<html>
+  <body>
+    <div class="h1 text-secondary text-center p-3">Search Results</div>
+      <div class="container-fluid">
+        <%= form_tag(search_path, method: :get, class:"d-flex") do %>
+          <%= text_field_tag(:search, params[:search], placeholder: "search", class: "form-control me-2")%>
+          <%= submit_tag "search", class: 'btn btn-outline-primary'%>
+        <% end %>
+
+        <% if @results != nil%>
+          <% @results.each do |item|%>
+            <div class="container p-3 my-3 bg-light text-black border border-primary">
+              <!-- I do not know why, but without this check for nil, sometimes an error occurs even if item actually is never nil to begin with -->
+              <% if item != nil%>
+                <% if item["volumeInfo"]["title"] != nil %>
+                  <p class="h2 text-dark"> <%= item["volumeInfo"]["title"] %> </p>
+                <% end %>
+
+                <% if item["volumeInfo"]["authors"][0] != nil %>
+                  <p class="h6"> By <%= item["volumeInfo"]["authors"][0] %> </p>
+                <% end %> 
+
+                <% if item["volumeInfo"]["publisher"] != nil %>
+                  <p> Publisher - <%= item["volumeInfo"]["publisher"] %> </p>
+                <% end %>
+
+                <% if item["volumeInfo"]["publishedDate"] != nil %>
+                  <p> Publication Date - <%= item["volumeInfo"]["publishedDate"] %> </p>
+                <% end %>
+
+                <% if item["volumeInfo"]["description"] != nil %>
+                  <p> Description - <%= item["volumeInfo"]["description"] %> </p>
+                <% end %>
+
+                <% if item["volumeInfo"]["imageLinks"] != nil %>
+                  <img src="<%= item["volumeInfo"]["imageLinks"]["thumbnail"] %>">
+                <% else %>
+                  <p> No Picture Available</p>
+                <% end %>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </body>
+</html>

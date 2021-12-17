@@ -1,0 +1,27 @@
+<html>
+  <body>
+    <div class="h1 text-secondary text-center p-3">Find a Book</div>
+      <div class="container-fluid">
+
+        <%= form_tag(search_path, method: :get, class:"d-flex") do %>
+          <%= text_field_tag(:search, params[:search], placeholder: "search", class: "form-control me-2")%>
+          <%= submit_tag "search", class: 'btn btn-outline-primary'%>
+        <% end %>
+
+        <% @items.each do |item|%>
+          <div class="container p-3 my-3 bg-light text-black border border-primary">
+          <p class="h2 text-dark"> <%= item["volumeInfo"]["title"] %> </p>
+          <p class="h6"> By <%= item["volumeInfo"]["authors"][0] %> </p>
+          <p> Publisher - <%= item["volumeInfo"]["publisher"] %> </p>
+          <p> Publication Date - <%= item["volumeInfo"]["publishedDate"] %> </p>
+          <p> Description - <%= item["volumeInfo"]["description"] %> </p>
+          <% if item["volumeInfo"]["imageLinks"] != nil %>
+            <img src="<%= item["volumeInfo"]["imageLinks"]["thumbnail"] %>">
+          <% else %>
+            <p> No Picture Available</p>
+          <% end %>
+          </div>
+        <% end %>
+      </div>
+  </body>
+</html>

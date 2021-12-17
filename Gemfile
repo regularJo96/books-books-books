@@ -66,3 +66,14 @@ end
 gem "bootstrap_form", "~> 4.0"
 
 gem 'devise'
+
+# to use API's
+gem 'faraday', '~> 1.8'
+
+gem 'dotenv-rails'
+
+gem 'omniauth'
+
+gem 'omniauth-google-oauth2'
+
+gem 'omniauth-rails_csrf_protection'
