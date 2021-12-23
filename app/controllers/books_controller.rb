@@ -26,4 +26,9 @@ class BooksController < ApplicationController
     render :results
   end
 
+  def add_book
+    @isbn = params[:isbn]
+    render :my_books
+  end
+
 end

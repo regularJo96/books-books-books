@@ -1,6 +1,6 @@
 <html>
   <body>
-    <div class="h1 text-secondary text-center p-3">Search Results</div>
+    <div class="h1 text-secondary text-center p-3">Search Results from Google Books</div>
       <div class="container-fluid">
         <%= form_tag(search_path, method: :get, class:"d-flex") do %>
           <%= text_field_tag(:search, params[:search], placeholder: "search", class: "form-control me-2")%>
